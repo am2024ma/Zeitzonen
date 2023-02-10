@@ -1,47 +1,22 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
+<script setup>
+import DigitalClock from "./components/DigitalClock.vue"
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
-
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
-
-  <main>
-    <TheWelcome />
-  </main>
+ <h1> {{ location }}</h1>
+  <DigitalClock  tz="Europe/Berlin"  location="Berlin" />
+  <DigitalClock  tz="America/New_York"  location="New York" />
+  <DigitalClock  tz="Asia/Shanghai"  location="Peking" />
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Wallpoet&display=swap");
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  color: #2c3e50;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+@font-face {
+  font-family: "alarm clock";
+  src: url(./fonts/alarm.ttf);
 }
 </style>
