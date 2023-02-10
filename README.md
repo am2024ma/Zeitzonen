@@ -4,6 +4,7 @@
 Der componente soll in diesem Weg geschrieben in App.vue 
 ````
 ````
+````
 <template>
  
   <DigitalClock  tz="Europe/Berlin"  location="Berlin" />
@@ -11,6 +12,7 @@ Der componente soll in diesem Weg geschrieben in App.vue
   <DigitalClock  tz="Asia/Shanghai"  location="Peking" />
 </template>
 
+````
 ````
 ````
 
