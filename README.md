@@ -2,8 +2,7 @@
 
 
 Der componente soll in diesem Weg geschrieben in App.vue 
-````
-````
+
 ````
 <template>
  
@@ -13,14 +12,9 @@ Der componente soll in diesem Weg geschrieben in App.vue
 </template>
 
 ````
-````
-````
+ ## Ausrufen
 
 der program ist ausgerufen mit 
 ````
-````
-````
 npm run dev
-````
-````
 ````
