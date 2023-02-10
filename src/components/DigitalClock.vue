@@ -1,7 +1,7 @@
 <script>
 
 export default {
-  name: "DigitalClock",
+ 
    
   data() {
     return {
@@ -50,6 +50,11 @@ export default {
 </template>
 
 <style scoped>
+
+background:#111;
+div{
+  border: 2px;
+}
 .LCD {
   display: flex;
 }
