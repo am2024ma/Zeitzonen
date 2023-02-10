@@ -2,15 +2,13 @@
 
 export default {
   name: "DigitalClock",
-   timezone: String,
+   
   data() {
     return {
       hours: 0,
       minutes: 0,
-      seconds: 0,
-      timezone:""
+      seconds: 0    
     }
-    
   },
   mounted() {
     setInterval(() => this.setTime(), 1000)
@@ -21,15 +19,8 @@ export default {
     location: String
   },
   methods: {
-    setTime() {
-     // const date = new Date();
- 
-      
-    const date = new Date(new Date().toLocaleString("en-US", {timeZone:  this.tz}))
-   
-    console.log("Date: "+ date);
-    console.log("Location: "+ this.location);
-    console.log("Timezone: "+  this.timezone);
+    setTime() { 
+    const date = new Date(new Date().toLocaleString("en-US", {timeZone:  this.tz})) 
       let hours = date.getHours();
       let minutes = date.getMinutes();
       let seconds = date.getSeconds();
@@ -45,9 +36,9 @@ export default {
 </script>
 
 <template>
-  <h1>Digital Clock</h1>
+   
   <div class="container">
-    <h2> {{ location }}</h2>
+    <h2>Location: {{ location }}</h2>
     <div class="LCD">
       <div class="hours">{{ hours }}</div>
       <div class="divider">:</div>

@@ -3,7 +3,7 @@ import DigitalClock from "./components/DigitalClock.vue"
 </script>
 
 <template>
- <h1> {{ location }}</h1>
+ 
   <DigitalClock  tz="Europe/Berlin"  location="Berlin" />
   <DigitalClock  tz="America/New_York"  location="New York" />
   <DigitalClock  tz="Asia/Shanghai"  location="Peking" />
