@@ -19,6 +19,8 @@ Der componente soll in diesem Weg geschrieben in App.vue
 der program ist ausgerufen mit 
 ````
 ````
+````
 npm run dev
+````
 ````
 ````
