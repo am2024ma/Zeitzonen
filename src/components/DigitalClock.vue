@@ -51,7 +51,7 @@ export default {
 
 <style scoped>
 
-background:#111;
+ 
 div{
   border: 2px;
 }
