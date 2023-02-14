@@ -9,7 +9,6 @@ werden, um "Uhrzeiten der Welt" anzuzeigen.
 Der componente soll in diesem Weg geschrieben in App.vue 
 ````
 ````
->>>>>>> ffb5047c0da0185954c9ad54d5d3ace50ba95046
 ````
 <template>
   <DigitalClock  tz="Europe/Berlin"  location="Berlin" />
@@ -35,7 +34,7 @@ und ist danach unter der angegebenen URL aufrufbar.
 
 localhost:3000
 
-![image](https://user-images.githubusercontent.com/10488821/218140264-8c2b3e2d-20d7-4a0a-8ffc-095b56cd48e6.png)
+ 
 
 Dockerfile ist erstellt die kann erstellt durch 
  
