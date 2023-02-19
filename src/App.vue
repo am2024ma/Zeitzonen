@@ -4,8 +4,11 @@ import DigitalClock from "./components/DigitalClock.vue"
 
 <template>
   <DigitalClock  tz="Europe/Berlin"  location="Berlin" />
+  <DigitalClock  tz="Europe/Tirana" location="Tiranë"/>
   <DigitalClock  tz="America/New_York"  location="New York" />
+  <DigitalClock  tz="America/Los_Angeles"  location="Los Angeles" />
   <DigitalClock  tz="Asia/Shanghai"  location="Peking" />
+
 </template>
 
 <style>

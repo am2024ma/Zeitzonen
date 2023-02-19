@@ -24,12 +24,19 @@ export default {
       let hours = date.getHours();
       let minutes = date.getMinutes();
       let seconds = date.getSeconds();
+      let dayOfWeek = date.toLocaleDateString();
+      console.log("day Of Week: "+dayOfWeek);
       hours = hours <= 9 ? `${hours}`.padStart(2, 0) : hours;
       minutes = minutes <= 9 ? `${minutes}`.padStart(2, 0) : minutes;
       seconds = seconds <= 9 ? `${seconds}`.padStart(2, 0) : seconds;
       this.hours = hours;
       this.minutes = minutes;
       this.seconds = seconds;
+
+      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+ 
+var dayName = days[date.getDay()];
+this.dayOfWeek = dayName;
     }
   }
 }
@@ -45,6 +52,7 @@ export default {
       <div class="minutes">{{ minutes }}</div>
       <div class="divider">:</div>
       <div class="seconds">{{ seconds }}</div>
+      <div class="dayOfWeek">{{ dayOfWeek }}</div>
     </div>
   </div>
 </template>
@@ -61,5 +69,10 @@ div{
 .LCD > div {
   font-family: "alarm clock";
   font-size: x-large;
+}
+
+.dayOfWeek{
+  padding: 10% 20%;
+
 }
 </style>
