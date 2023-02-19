@@ -4,7 +4,6 @@ import DigitalClock from "./components/DigitalClock.vue"
 
 <template>
   <DigitalClock  tz="Europe/Berlin"  location="Berlin" />
-  <DigitalClock  tz="Europe/Tirana" location="Tiranë"/>
   <DigitalClock  tz="America/New_York"  location="New York" />
   <DigitalClock  tz="America/Los_Angeles"  location="Los Angeles" />
   <DigitalClock  tz="Asia/Shanghai"  location="Peking" />
@@ -33,7 +32,7 @@ font-family: Avenir, Helvetica, Arial, sans-serif;
 div.LCD {
 
   text-align: center;
-  margin: auto;
+  margin: auto auto;
   align-items: center;
 
 }

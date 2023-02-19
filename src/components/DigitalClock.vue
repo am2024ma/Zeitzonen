@@ -72,7 +72,14 @@ div{
 }
 
 .dayOfWeek{
-  padding: 10% 20%;
+   margin: 3% auto;
 
+}
+
+.container{
+  border-radius: 25px;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
 }
 </style>
