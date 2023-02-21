@@ -76,7 +76,6 @@ div{
 
 }
 
-
 .container{
   border-radius: 25px;
   padding: 20px;

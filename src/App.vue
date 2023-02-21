@@ -9,8 +9,6 @@ import DigitalClock from "./components/DigitalClock.vue"
   <DigitalClock  tz="Europe/London"  location="London" />
   <DigitalClock  tz="Europe/Paris"  location="Paris" />
   <DigitalClock  tz="Asia/Shanghai"  location="Peking" />
-
-
 </template>
 
 <style>
