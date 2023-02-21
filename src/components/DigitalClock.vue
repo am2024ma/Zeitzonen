@@ -76,10 +76,12 @@ div{
 
 }
 
+
 .container{
   border-radius: 25px;
   padding: 20px;
-  width: 200px;
+  width: 280px;
   height: 150px;
+  float: left;
 }
 </style>

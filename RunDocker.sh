@@ -1,4 +1,4 @@
- echo https://v2.vuejs.org/v2/cookbook/dockerize-vuejs-app.html
+
  
  sudo docker build -t vuejs-cookbook/dockerize-vuejs-app .
 
