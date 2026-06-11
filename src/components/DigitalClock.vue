@@ -1,86 +1,85 @@
-<script>
+<script setup>
+import { ref, onMounted, onUnmounted } from 'vue';
 
-export default {
- 
-   
-  data() {
-    return {
-      hours: 0,
-      minutes: 0,
-      seconds: 0    
-    }
-  },
-  mounted() {
-    setInterval(() => this.setTime(), 1000)
-  },
+// Define props with explicit types
+const props = defineProps({
+  tz: { type: String, required: true },
+  location: { type: String, required: true }
+});
 
-  props: {
-    tz: String,
-    location: String
-  },
-  methods: {
-    setTime() { 
-    const date = new Date(new Date().toLocaleString("en-US", {timeZone:  this.tz})) 
-      let hours = date.getHours();
-      let minutes = date.getMinutes();
-      let seconds = date.getSeconds();
-      let dayOfWeek = date.toLocaleDateString();
-      console.log("day Of Week: "+dayOfWeek);
-      hours = hours <= 9 ? `${hours}`.padStart(2, 0) : hours;
-      minutes = minutes <= 9 ? `${minutes}`.padStart(2, 0) : minutes;
-      seconds = seconds <= 9 ? `${seconds}`.padStart(2, 0) : seconds;
-      this.hours = hours;
-      this.minutes = minutes;
-      this.seconds = seconds;
+// Reactive state
+const hours = ref('00');
+const minutes = ref('00');
+const seconds = ref('00');
+const dayOfWeek = ref('');
 
-      var days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
- 
-var dayName = days[date.getDay()];
-this.dayOfWeek = dayName;
-    }
-  }
-}
+let timer = null;
+
+const updateTime = () => {
+  const now = new Date();
+  const options = {
+    timeZone: props.tz,
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false, weekday: 'long'
+  };
+
+  const formatter = new Intl.DateTimeFormat('en-US', options);
+  const parts = formatter.formatToParts(now);
+
+  // Update refs directly; Vue handles the DOM reactivity
+  hours.value = parts.find(p => p.type === 'hour').value;
+  minutes.value = parts.find(p => p.type === 'minute').value;
+  seconds.value = parts.find(p => p.type === 'second').value;
+  dayOfWeek.value = parts.find(p => p.type === 'weekday').value;
+};
+
+onMounted(() => {
+  updateTime();
+  timer = setInterval(updateTime, 1000);
+});
+
+onUnmounted(() => clearInterval(timer));
 </script>
 
 <template>
-   
   <div class="container">
-    <h2>Location: {{ location }}</h2>
+    <h2>{{ location }}</h2>
     <div class="LCD">
-      <div class="hours">{{ hours }}</div>
-      <div class="divider">:</div>
-      <div class="minutes">{{ minutes }}</div>
-      <div class="divider">:</div>
-      <div class="seconds">{{ seconds }}</div>
-      <div class="dayOfWeek">{{ dayOfWeek }}</div>
+      <div class="time-segment">{{ hours }}</div>
+      <span>:</span>
+      <div class="time-segment">{{ minutes }}</div>
+      <span>:</span>
+      <div class="time-segment">{{ seconds }}</div>
     </div>
+    <div class="day-label">{{ dayOfWeek }}</div>
   </div>
 </template>
 
 <style scoped>
-
- 
-div{
-  border: 2px;
+.container {
+  border: 1px solid #444;
+  border-radius: 15px;
+  padding: 15px;
+  width: 250px;
+  display: inline-block;
+  background: #000;
+  color: #0f0; /* Classic "Matrix" or Terminal aesthetic */
 }
+
 .LCD {
   display: flex;
-}
-.LCD > div {
-  font-family: "alarm clock";
-  font-size: x-large;
-}
-
-.dayOfWeek{
-   margin: 3% auto;
-
+  justify-content: center;
+  gap: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-.container{
-  border-radius: 25px;
-  padding: 20px;
-  width: 280px;
-  height: 150px;
-  float: left;
+.day-label {
+  text-align: center;
+  margin-top: 10px;
+  font-family: sans-serif;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 </style>
